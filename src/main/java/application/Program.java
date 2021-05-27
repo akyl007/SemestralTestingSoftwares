@@ -11,15 +11,13 @@ import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.pieces.FigureColors;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import gui.Table;
+
 
 public class Program {
     private static final Logger logger = Logger.getGlobal();
     public static void main(String[] args) {
 
-        final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+
 
         Scanner sc = new Scanner(System.in);
         ChessMatch chessMatch = new ChessMatch();
@@ -29,7 +27,6 @@ public class Program {
             try {
                 UI.whitePlayerfiguresColor = FigureColors.ANSI_BLUE;
                 UI.blackPlayerfiguresColor = FigureColors.ANSI_GREEN;
-                Table.get().show();
                 UI.clearScreen();
                 UI.printMatch(chessMatch, captured);
                 System.out.println();
