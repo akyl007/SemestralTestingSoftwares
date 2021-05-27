@@ -27,7 +27,7 @@ public class ChessMatch {
     private ChessPiece promoted;
 
     private List<Piece> piecesOnTheBoard = new ArrayList<>();
-    private List<Piece> capturedPieces = new ArrayList<>();
+    public List<Piece> capturedPieces = new ArrayList<>();
 
     public ChessMatch() {
         board = new Board(8, 8);
@@ -259,7 +259,7 @@ public class ChessMatch {
         }
     }
 
-    private void nextTurn() {
+    public void nextTurn() {
         turn++;
         currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
     }

@@ -2,6 +2,7 @@ package chessTest;
 
 import application.UI;
 import boardgame.Board;
+import boardgame.Position;
 import chess.*;
 import chess.pieces.*;
 import org.junit.Test;
@@ -9,7 +10,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ChessMatchTest {
-
 
 
     @Test
@@ -37,7 +37,7 @@ public class ChessMatchTest {
     }
 
     @Test
-    public void getPiecesCheck(){
+    public void getPiecesTest(){
         /**
          * Pokusíme se vrátit všechny figurky na Boardu
          */
@@ -57,7 +57,7 @@ public class ChessMatchTest {
     }
 
     @Test
-    public void checkingTurnFunctionality(){
+    public void TestingTurnFunctionality(){
         /**
          * Zkontrolujeme, zda funkce Turn funguje správně
          */
@@ -79,7 +79,7 @@ public class ChessMatchTest {
     }
 
     @Test
-    public void getMovedPiece(){
+    public void getMovedPieceTest(){
         /**
          * Ověřujeme účinnost pohybu figurek
          */
@@ -110,6 +110,23 @@ public class ChessMatchTest {
         assertEquals(cm.getCurrentPlayer(),Color.BLACK);
 
     }
+/*    @Test
+    public void StaleMateTest(){
+        ChessMatch cm = new ChessMatch();
+        assertFalse(cm.getCheck());
+
+        ChessPosition cp = UI.readChessPositionString("d2");
+        Position pos = cp.toPosition();
+        cm.board.removePiece(pos);
+
+        ChessPosition sourceQueen = UI.readChessPositionString("d1");
+        ChessPosition targetQueen = UI.readChessPositionString("d7");
+        cm.performChessMove(sourceQueen,targetQueen);
+        UI.printBoard(cm.getPieces());
+        assertTrue(cm.getCheck());
+
+    }*/
+
     @Test
     public void checkMateTest(){
         ChessMatch cm = new ChessMatch();
@@ -148,4 +165,19 @@ public class ChessMatchTest {
 
 
     }
+    @Test
+    public void gettingCapturedList(){
+        ChessMatch cm = new ChessMatch();
+        cm.placeNewPiece('f',3,new Knight(cm.board, Color.WHITE));
+        cm.placeNewPiece('d', 4, new Pawn(cm.board, Color.BLACK, cm));
+        assertEquals(0,cm.capturedPieces.size());
+
+        ChessPosition source = UI.readChessPositionString("f3");
+        ChessPosition target = UI.readChessPositionString("d4");
+        cm.performChessMove(source,target);
+
+        assertEquals(1,cm.capturedPieces.size());
+
+    }
+
 }
