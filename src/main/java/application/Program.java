@@ -25,8 +25,8 @@ public class Program {
         logger.info("Match started!");
         while (!chessMatch.getCheckMate()) {
             try {
-                UI.whitePlayerfiguresColor = FigureColors.ANSI_BLUE;
-                UI.blackPlayerfiguresColor = FigureColors.ANSI_GREEN;
+                UI.whitePlayerfiguresColor = FigureColors.ANSI_YELLOW;
+                UI.blackPlayerfiguresColor = FigureColors.ANSI_BLUE;
                 UI.clearScreen();
                 UI.printMatch(chessMatch, captured);
                 System.out.println();
