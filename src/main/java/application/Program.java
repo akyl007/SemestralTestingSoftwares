@@ -41,7 +41,7 @@ public class Program {
                 System.out.println();
                 System.out.print("Target: ");
                 ChessPosition target = UI.readChessPosition(sc);
-                logger.config("Getting source position successful: " + target.getColumn() + target.getRow());
+                logger.config("Getting target position successful: " + target.getColumn() + target.getRow());
 
                 ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
 

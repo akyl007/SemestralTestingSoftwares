@@ -5,8 +5,11 @@ import boardgame.Board;
 import chess.*;
 import chess.pieces.*;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ChessMatchTest {
 
@@ -18,9 +21,9 @@ public class ChessMatchTest {
          * Kontrola správnosti funkce oponentCheck
          */
         ChessMatch cm = new ChessMatch();
-
         assertEquals(cm.opponent(Color.WHITE),Color.BLACK);
         assertEquals(cm.opponent(Color.BLACK),Color.WHITE);
+
     }
 
     @Test(expected = ChessException.class)
@@ -54,6 +57,7 @@ public class ChessMatchTest {
         cm.placeNewPiece('d', 8, new Queen(cm.board, Color.BLACK));
         UI.printBoard(cm.getPieces());
         assertEquals(8,cm.getPieces().length);
+
     }
 
     @Test
@@ -73,6 +77,7 @@ public class ChessMatchTest {
         ChessPosition target2 = UI.readChessPositionString("e5");
         cm.performChessMove(source2, target2);
         assertTrue(cm.getTurn() == 3);
+
 
 
 
