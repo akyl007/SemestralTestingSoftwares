@@ -8,23 +8,19 @@ import static org.junit.Assert.*;
 import boardgame.BoardException;
 import boardgame.Position;
 import chess.Color;
-<<<<<<< HEAD
-=======
 import chess.pieces.King;
 import chess.pieces.Knight;
 import chess.pieces.Pawn;
->>>>>>> 690985ae65bd967d751cbfb686005dc51eab3706
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
 public class BoardTest {
     @Test
-<<<<<<< HEAD
     public void removePiece(){
-=======
+
+    }
     public void removePieceTest(){
->>>>>>> 690985ae65bd967d751cbfb686005dc51eab3706
         /**
          * Kontrola odstranění figurek z desky
          */
@@ -53,12 +49,12 @@ public class BoardTest {
         assertTrue(cm.board.positionExists(pos));
 
     }
-<<<<<<< HEAD
 
     @Test
     public void newPieceTest(){
 
-=======
+    }
+
     @Test
     public void placePieceTest(){
         //Create Knight on d4
@@ -72,7 +68,6 @@ public class BoardTest {
         UI.printBoard(cm.getPieces());
 
         assertTrue(king instanceof Knight);
->>>>>>> 690985ae65bd967d751cbfb686005dc51eab3706
 
     }
 }
