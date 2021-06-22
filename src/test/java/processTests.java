@@ -1,9 +1,6 @@
 import application.UI;
 import boardgame.Board;
-import chess.ChessMatch;
-import chess.ChessPiece;
-import chess.ChessPosition;
-import chess.Color;
+import chess.*;
 import chess.pieces.*;
 import org.junit.Test;
 
@@ -133,6 +130,17 @@ public class processTests {
         cm.placeNewPiece('d', 8, new Queen(cm.board, Color.BLACK));
         UI.printBoard(cm.getPieces());
         assertEquals(8,cm.getPieces().length);
+    }
+    @Test(expected = ChessException.class)
+    public void performChessMoveExceptionTest(){
+        /**
+         * Chytneme funkci chůze figurek na chybě
+         */
+        ChessMatch cm = new ChessMatch();
+
+        ChessPosition source = UI.readChessPositionString("e2");
+        ChessPosition target = UI.readChessPositionString("e5");
+        cm.performChessMove(source, target);
 
     }
 }

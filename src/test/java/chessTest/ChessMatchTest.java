@@ -25,17 +25,4 @@ public class ChessMatchTest {
         assertEquals(cm.opponent(Color.BLACK),Color.WHITE);
 
     }
-
-    @Test(expected = ChessException.class)
-    public void performChessMoveExceptionTest(){
-        /**
-         * Chytneme funkci chůze figurek na chybě
-         */
-        ChessMatch cm = new ChessMatch();
-
-        ChessPosition source = UI.readChessPositionString("e2");
-        ChessPosition target = UI.readChessPositionString("e5");
-        cm.performChessMove(source, target);
-
-    }
 }
