@@ -3,12 +3,14 @@ import boardgame.Board;
 import chess.*;
 import chess.pieces.*;
 import org.junit.Test;
+import org.junit.jupiter.api.Order;
 
 import static org.junit.Assert.*;
 
 public class processTests {
 
     @Test
+    @Order(1)
     public void checkMateTest1(){
         ChessMatch cm = new ChessMatch();
         /**
@@ -45,6 +47,7 @@ public class processTests {
         assertTrue(cm.getCheckMate());
     }
     @Test
+    @Order(2)
     public void TestingTurnFunctionality(){
         /**
          * Zkontrolujeme, zda funkce Turn funguje správně
@@ -65,6 +68,7 @@ public class processTests {
     }
 
     @Test
+    @Order(3)
     public void getMovedPieceTest(){
         /**
          * Ověřujeme účinnost pohybu figurek
@@ -82,6 +86,7 @@ public class processTests {
     }
 
     @Test
+    @Order(4)
     public void changeTurnFromWhiteToBlack(){
         /**
          * Ověřujeme správnost výměny hráčů
@@ -98,6 +103,7 @@ public class processTests {
     }
 
     @Test
+    @Order(5)
     public void gettingCapturedList(){
         ChessMatch cm = new ChessMatch();
         cm.placeNewPiece('f',3,new Knight(cm.board, Color.WHITE));
@@ -113,6 +119,7 @@ public class processTests {
     }
 
     @Test
+    @Order(6)
     public void getPiecesOnTheBoardTest(){
         /**
          * Pokusíme se vrátit všechny figurky na Boardu
@@ -132,6 +139,7 @@ public class processTests {
         assertEquals(8,cm.getPieces().length);
     }
     @Test(expected = ChessException.class)
+    @Order(7)
     public void performChessMoveExceptionTest(){
         /**
          * Chytneme funkci chůze figurek na chybě
@@ -143,4 +151,29 @@ public class processTests {
         cm.performChessMove(source, target);
 
     }
+
+    @Test(expected = ChessException.class)
+    // 1-2
+    public void test1(){
+        ChessMatch cm = new ChessMatch();
+        ChessPosition source = UI.readChessPositionString("e2");
+        ChessPosition target = UI.readChessPositionString("e5");
+        cm.performChessMove(source, target);
+    }
+
+    @Test(expected = ChessException.class)
+    //1-3-4
+    public void test2() {
+        ChessMatch cm = new ChessMatch();
+        ChessPosition source = UI.readChessPositionString("a1");
+        ChessPosition target = UI.readChessPositionString("a3");
+        cm.performChessMove(source, target);
+    }
+
+
+    
+
+
+
+
 }
