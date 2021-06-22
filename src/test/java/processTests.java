@@ -1,7 +1,9 @@
 import application.UI;
 import boardgame.Board;
+import boardgame.Position;
 import chess.*;
 import chess.pieces.*;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Order;
 
@@ -170,8 +172,61 @@ public class processTests {
         cm.performChessMove(source, target);
     }
 
+    @Test
+    //1-3-5-7
+    public void test3(){
+        ChessMatch cm = new ChessMatch();
+        cm.board = new Board(8, 8);
+        cm.placeNewPiece('a', 1, new Rook(cm.board, Color.WHITE));
+        cm.placeNewPiece('b', 1, new Knight(cm.board, Color.WHITE));
+        cm.placeNewPiece('c', 1, new Bishop(cm.board, Color.WHITE));
+        cm.placeNewPiece('d', 1, new Queen(cm.board, Color.WHITE));
+        cm.placeNewPiece('e', 1, new King(cm.board, Color.WHITE, cm));
+        cm.placeNewPiece('h', 7, new Pawn(cm.board, Color.WHITE, cm));
 
-    
+        cm.placeNewPiece('a', 8, new Rook(cm.board, Color.BLACK));
+        cm.placeNewPiece('b', 8, new Knight(cm.board, Color.BLACK));
+        cm.placeNewPiece('c', 8, new Bishop(cm.board, Color.BLACK));
+        cm.placeNewPiece('d', 8, new Queen(cm.board, Color.BLACK));
+        cm.placeNewPiece('e', 8, new King(cm.board, Color.BLACK, cm));
+        UI.printBoard(cm.getPieces());
+
+        ChessPosition source = UI.readChessPositionString("h7");
+        ChessPosition target = UI.readChessPositionString("h8");
+        cm.performChessMove(source, target);
+        UI.printBoard(cm.getPieces());
+        assertEquals(cm.board.piece(target.toPosition()).toString(), "Q");
+    }
+
+    @Test
+    //1-3-5-8
+    public void test4(){
+        ChessMatch cm = new ChessMatch();
+        cm.board = new Board(8, 8);
+        cm.placeNewPiece('a', 1, new Rook(cm.board, Color.WHITE));
+        cm.placeNewPiece('b', 1, new Knight(cm.board, Color.WHITE));
+        cm.placeNewPiece('c', 1, new Bishop(cm.board, Color.WHITE));
+        cm.placeNewPiece('d', 1, new Queen(cm.board, Color.WHITE));
+        cm.placeNewPiece('e', 1, new King(cm.board, Color.WHITE, cm));
+        cm.placeNewPiece('h', 1, new Pawn(cm.board, Color.WHITE, cm));
+
+        cm.placeNewPiece('a', 8, new Rook(cm.board, Color.BLACK));
+        cm.placeNewPiece('b', 8, new Knight(cm.board, Color.BLACK));
+        cm.placeNewPiece('c', 8, new Bishop(cm.board, Color.BLACK));
+        cm.placeNewPiece('d', 8, new Queen(cm.board, Color.BLACK));
+        cm.placeNewPiece('e', 8, new King(cm.board, Color.BLACK, cm));
+        UI.printBoard(cm.getPieces());
+
+        ChessPosition source = UI.readChessPositionString("h1");
+        ChessPosition target = UI.readChessPositionString("h2");
+        cm.performChessMove(source, target);
+        UI.printBoard(cm.getPieces());
+        assertEquals(cm.board.piece(target.toPosition()).toString(), "P");
+
+
+    }
+
+
 
 
 
