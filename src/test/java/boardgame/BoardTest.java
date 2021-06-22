@@ -49,12 +49,6 @@ public class BoardTest {
         assertTrue(cm.board.positionExists(pos));
 
     }
-
-    @Test
-    public void newPieceTest(){
-
-    }
-
     @Test
     public void placePieceTest(){
         //Create Knight on d4
