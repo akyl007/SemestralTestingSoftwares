@@ -1,3 +1,5 @@
+package processTests;
+
 import application.UI;
 import boardgame.Board;
 import boardgame.Position;
