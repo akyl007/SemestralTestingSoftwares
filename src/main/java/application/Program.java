@@ -14,7 +14,7 @@ import chess.pieces.FigureColors;
 
 
 public class Program {
-    private static final Logger logger = Logger.getGlobal();
+        private static final Logger logger = Logger.getGlobal();
     public static void main(String[] args) {
 
 

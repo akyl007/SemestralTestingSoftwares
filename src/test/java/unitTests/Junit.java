@@ -123,6 +123,7 @@ public class Junit {
     @Test
     @Order(6)
     public void removePiece_Mocked() {
+
         ChessMatch cm = new ChessMatch();
 
         Position pos = Mockito.mock(Position.class);
@@ -138,7 +139,7 @@ public class Junit {
 
     @Test
     @Order(7)
-    public void pawnPossibleMoves_Mocked() {
+    public void pawnPossibleMove_Mocked() {
 
 
 

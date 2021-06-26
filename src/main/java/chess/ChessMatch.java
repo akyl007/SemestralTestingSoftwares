@@ -37,6 +37,8 @@ public class ChessMatch {
         logger.config("Match successfully created!");
     }
 
+    public Board getBoard(){ return board;}
+
     public int getTurn() {
         return turn;
     }
@@ -59,10 +61,6 @@ public class ChessMatch {
 
     public ChessPiece getPromoted() {
         return promoted;
-    }
-
-    public void setPromoted(ChessPiece chessPiece){
-        promoted = chessPiece;
     }
 
     public ChessPiece[][] getPieces() {
@@ -145,7 +143,8 @@ public class ChessMatch {
         return newPiece;
     }
 
-    private ChessPiece newPiece(String type, Color color) {
+    public ChessPiece newPiece(String type, Color color) {
+        if (!type.equals("B") && !type.equals("N") && !type.equals("Q") && !type.equals("R")) throw new ChessException("Invalid value!");
         if (type.equals("B")) return new Bishop(board, color);
         if (type.equals("N")) return new Knight(board, color);
         if (type.equals("Q")) return new Queen(board, color);

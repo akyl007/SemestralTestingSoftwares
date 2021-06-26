@@ -1,6 +1,7 @@
 package chess.pieces;
 
 import boardgame.Board;
+import boardgame.Piece;
 import boardgame.Position;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -14,6 +15,7 @@ public class King extends ChessPiece {
         super(board, color);
         this.chessMatch = chessMatch;
     }
+
 
     @Override
     public String toString() {
@@ -109,4 +111,5 @@ public class King extends ChessPiece {
 
         return mat;
     }
+
 }
