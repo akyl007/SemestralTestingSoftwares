@@ -3,10 +3,10 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
-    <content url="file://$MODULE_DIR$/../../../../Ukoly OMO/Semestralka/erert/ts1_semestralka">
-      <sourceFolder url="file://$MODULE_DIR$/../../../../Ukoly OMO/Semestralka/erert/ts1_semestralka/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../../Ukoly OMO/Semestralka/erert/ts1_semestralka/src/test/java" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/../../../../Ukoly OMO/Semestralka/erert/ts1_semestralka/target" />
+    <content url="file:///Users/Ukoly OMO/Semestralka/erert/ts1_semestralka">
+      <sourceFolder url="file:///Users/Ukoly OMO/Semestralka/erert/ts1_semestralka/src/main/java" isTestSource="false" />
+      <sourceFolder url="file:///Users/Ukoly OMO/Semestralka/erert/ts1_semestralka/src/test/java" isTestSource="true" />
+      <excludeFolder url="file:///Users/Ukoly OMO/Semestralka/erert/ts1_semestralka/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
