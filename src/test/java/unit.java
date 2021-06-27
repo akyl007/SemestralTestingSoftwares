@@ -120,5 +120,10 @@ public class unit {
         assertEquals(expected ,res);
 
     }
-
+    @Test
+    @Order(7)
+    public void getCurrentPlayerTest(){
+        ChessMatch cm = new ChessMatch();
+        assertEquals(Color.WHITE,cm.getCurrentPlayer());
+    }
 }
