@@ -126,4 +126,62 @@ public class unit {
         ChessMatch cm = new ChessMatch();
         assertEquals(Color.WHITE,cm.getCurrentPlayer());
     }
+    @Test
+    @Order(8)
+    public void ThereIsAPiece_Mocked(){
+
+        ChessMatch cm = new ChessMatch();
+
+        Position position1 = Mockito.mock(Position.class);
+        Mockito.when(position1.getRow()).thenReturn(6);
+        Mockito.when(position1.getColumn()).thenReturn(0);
+
+        Position position2 = Mockito.mock(Position.class);
+        Mockito.when(position2.getRow()).thenReturn(5);
+        Mockito.when(position2.getColumn()).thenReturn(5);
+
+        assertTrue(cm.board.thereIsAPiece(position1));
+
+    }
+
+    @Test
+    @Order(9)
+    public void pawnPossibleMove_Mocked() {
+
+
+
+        Position pos = Mockito.mock(Position.class);
+        Position pos1 = Mockito.mock(Position.class);
+        Position pos2 = Mockito.mock(Position.class);
+
+        Mockito.when(pos.getRow()).thenReturn(6);
+        Mockito.when(pos.getColumn()).thenReturn(0);
+        Mockito.when(pos1.getRow()).thenReturn(5);
+        Mockito.when(pos1.getColumn()).thenReturn(0);
+        Mockito.when(pos2.getRow()).thenReturn(4);
+        Mockito.when(pos2.getColumn()).thenReturn(0);
+
+        ChessMatch cm = new ChessMatch();
+
+        assertTrue(cm.board.piece(pos).possibleMove(pos2));
+
+    }
+
+    @Test
+    @Order(10)
+    public void removePiece_Mocked() {
+
+        ChessMatch cm = new ChessMatch();
+
+        Position pos = Mockito.mock(Position.class);
+        Mockito.when(pos.getRow()).thenReturn(6);
+        Mockito.when(pos.getColumn()).thenReturn(0);
+
+
+        cm.board.removePiece(pos);
+
+        assertEquals(cm.board.piece(6, 0), null);
+
+    }
+
 }
